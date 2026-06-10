@@ -12,8 +12,8 @@
   --muted: #b9b9d0;
   --dim: #82829b;
   --paper: #f5f3ec;
-  --font-display: "Schibsted Grotesk", system-ui, sans-serif;
-  --font-body: "Hanken Grotesk", system-ui, sans-serif;
+  --font-display: "Google Sans", "Product Sans", system-ui, sans-serif;
+  --font-body: "Google Sans", "Product Sans", system-ui, sans-serif;
   --max: 1180px;
   --shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
 }
@@ -270,6 +270,7 @@ summary:focus-visible {
   display: inline-flex;
   align-items: center;
   gap: 12px;
+  justify-self: end;
 }
 
 .menu-button {
@@ -1177,6 +1178,10 @@ details p {
 }
 
 @media (max-width: 740px) {
+  .announce {
+    display: none;
+  }
+
   .container {
     width: min(100% - 28px, var(--max));
   }
