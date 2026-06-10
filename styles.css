@@ -324,7 +324,7 @@ summary:focus-visible {
   position: relative;
   min-height: clamp(520px, 72dvh, 700px);
   display: grid;
-  align-items: end;
+  align-items: center;
   overflow: hidden;
   border-bottom: 1px solid var(--line);
 }
@@ -358,12 +358,12 @@ summary:focus-visible {
 .hero__content {
   position: relative;
   z-index: 1;
-  padding-block: 54px 24px;
+  padding-block: clamp(68px, 8dvh, 96px) clamp(76px, 9dvh, 108px);
 }
 
 .hero h1 {
   max-width: 15ch;
-  margin-top: 20px;
+  margin-top: 18px;
   font-size: clamp(3rem, 5.7vw, 5.25rem);
   font-weight: 900;
 }
@@ -453,12 +453,13 @@ summary:focus-visible {
 }
 
 .section {
-  padding-block: clamp(72px, 9vw, 122px);
+  padding-block: clamp(61px, 7.65vw, 104px);
+  scroll-margin-top: 118px;
 }
 
 .section-head {
   max-width: 720px;
-  margin-bottom: 42px;
+  margin-bottom: 36px;
 }
 
 .section-head h2 {
@@ -486,6 +487,15 @@ summary:focus-visible {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
   gap: 18px;
+  align-items: center;
+}
+
+.section--events {
+  padding-bottom: clamp(42px, 4.6vw, 62px);
+}
+
+.section--past {
+  padding-top: clamp(42px, 4.6vw, 62px);
 }
 
 .event-card {
@@ -637,7 +647,7 @@ summary:focus-visible {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   gap: clamp(36px, 8vw, 90px);
-  align-items: start;
+  align-items: center;
 }
 
 .pillars {
@@ -675,10 +685,19 @@ summary:focus-visible {
 
 .feature-band {
   position: relative;
-  min-height: 620px;
+  min-height: clamp(500px, 62dvh, 580px);
   display: grid;
-  align-items: end;
+  align-items: center;
   overflow: hidden;
+}
+
+#comunidad,
+#patrocinios {
+  padding-bottom: clamp(46px, 5.8vw, 74px);
+}
+
+#equipo {
+  padding-top: clamp(46px, 5.8vw, 74px);
 }
 
 .feature-band > img {
@@ -701,7 +720,7 @@ summary:focus-visible {
 .feature-band__content {
   position: relative;
   z-index: 1;
-  padding-block: 80px;
+  padding-block: clamp(62px, 7vw, 84px);
 }
 
 .feature-band h2 {
@@ -896,37 +915,85 @@ summary:focus-visible {
 .team-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
+  gap: 16px;
+  align-items: stretch;
 }
 
 .team-member {
-  padding: 24px;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: 18px;
+  border-radius: 20px;
   background: rgba(255, 255, 255, 0.04);
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
 }
 
-.team-member span {
-  display: grid;
-  place-items: center;
-  width: 62px;
-  height: 62px;
-  margin-bottom: 24px;
-  border-radius: 16px;
-  background: linear-gradient(135deg, var(--blue), var(--blue-deep));
-  color: #fff;
+.team-member:hover {
+  transform: translateY(-3px);
+  border-color: rgba(102, 117, 255, 0.58);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.team-member img {
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  object-fit: cover;
+  object-position: center 22%;
+  border-bottom: 1px solid var(--line);
+  filter: saturate(0.92) contrast(1.02);
+}
+
+.team-member__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 22px;
+}
+
+.team-member__role {
+  color: var(--coral-bright);
   font-family: var(--font-display);
+  font-size: 0.75rem;
   font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .team-member h3 {
-  font-size: 1.22rem;
+  margin-top: 10px;
+  font-size: 1.24rem;
 }
 
-.team-member p {
+.team-member__meta {
   margin-top: 10px;
+  color: #eeeeff;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.team-member__bio {
+  margin-top: 14px;
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.team-member__link {
+  width: fit-content;
+  margin-top: auto;
+  padding-top: 18px;
+  color: var(--blue-bright);
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  font-weight: 900;
+}
+
+.team-member__link::after {
+  content: " ->";
 }
 
 .faq-layout {
@@ -1191,11 +1258,11 @@ details p {
   }
 
   .hero {
-    min-height: 650px;
+    min-height: 600px;
   }
 
   .hero__content {
-    padding-block: 72px 34px;
+    padding-block: 64px 72px;
   }
 
   .hero h1 {
@@ -1231,7 +1298,7 @@ details p {
 
   .feature-band,
   .final-cta {
-    min-height: 560px;
+    min-height: 520px;
   }
 
   .timeline {

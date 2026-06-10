@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1100" viewBox="0 0 900 1100" role="img" aria-labelledby="title desc">
+  <title id="title">Retrato editorial de David Alfaro</title>
+  <desc id="desc">Placeholder visual con iniciales DA para la tarjeta de equipo de ListenUp.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#3432e6"/>
+      <stop offset="0.55" stop-color="#17172c"/>
+      <stop offset="1" stop-color="#e85d70"/>
+    </linearGradient>
+    <radialGradient id="light" cx="30%" cy="20%" r="70%">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".42"/>
+      <stop offset=".5" stop-color="#6675ff" stop-opacity=".16"/>
+      <stop offset="1" stop-color="#070711" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="900" height="1100" fill="#070711"/>
+  <rect width="900" height="1100" fill="url(#bg)"/>
+  <rect width="900" height="1100" fill="url(#light)"/>
+  <path d="M90 894c116-214 217-321 361-321 145 0 251 109 359 321v206H90V894Z" fill="#080816" opacity=".76"/>
+  <circle cx="450" cy="412" r="176" fill="#0f1024" opacity=".62"/>
+  <text x="450" y="458" text-anchor="middle" fill="#fff" font-family="Arial, Helvetica, sans-serif" font-size="160" font-weight="800" letter-spacing="-8">DA</text>
+  <path d="M99 151c230 34 488 34 703-18" fill="none" stroke="#fff" stroke-opacity=".17" stroke-width="4"/>
+  <path d="M116 209c240 41 472 32 670-23" fill="none" stroke="#fff" stroke-opacity=".12" stroke-width="3"/>
+</svg>
