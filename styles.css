@@ -382,6 +382,52 @@ summary:focus-visible {
   margin-top: 24px;
 }
 
+.hero-event-card {
+  position: absolute;
+  right: max(20px, calc((100% - var(--max)) / 2));
+  bottom: clamp(28px, 6dvh, 56px);
+  z-index: 2;
+  display: flex;
+  width: min(320px, calc(100% - 40px));
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 18px;
+  background:
+    linear-gradient(150deg, rgba(52, 50, 230, 0.32), rgba(7, 7, 17, 0.92)),
+    var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.hero-event-card h3 {
+  font-size: clamp(1.5rem, 2.4vw, 1.9rem);
+  font-weight: 900;
+}
+
+.hero-event-card__topic {
+  color: var(--coral-bright);
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.hero-event-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  color: var(--blue-bright);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.hero-event-card .button {
+  margin-top: 4px;
+}
+
 .stats-band {
   border-bottom: 1px solid var(--line);
   background: var(--blue);
@@ -1242,6 +1288,13 @@ details p {
   .section-head--row {
     grid-template-columns: 1fr;
   }
+
+  .hero-event-card {
+    position: static;
+    width: 100%;
+    max-width: 380px;
+    margin-top: 28px;
+  }
 }
 
 @media (max-width: 740px) {
@@ -1267,6 +1320,12 @@ details p {
 
   .hero h1 {
     font-size: clamp(2.55rem, 12vw, 3.35rem);
+  }
+
+  .hero-event-card {
+    max-width: none;
+    margin-top: 24px;
+    padding: 18px;
   }
 
   .stats-band dl {
