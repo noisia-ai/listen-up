@@ -1519,6 +1519,7 @@ details p {
 
 .blog-card h3 {
   margin-top: 14px;
+  min-height: 3.1em;
   font-size: clamp(1.2rem, 1.8vw, 1.5rem);
   font-weight: 900;
 }
