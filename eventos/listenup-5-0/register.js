@@ -5,13 +5,10 @@ if (form) {
   const successPanel = document.querySelector("#registerSuccess");
   const icsLink = document.querySelector("#registerIcs");
   const honeypot = document.querySelector("#empresaWeb");
+  const submitButton = document.querySelector("#registerSubmit");
 
   const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const URL_RE = /^https?:\/\/.+/i;
-
-  // Mientras Resend no este disponible (dominio pendiente de verificar),
-  // el registro se envia por mailto al equipo, con copia al asistente.
-  const NOTIFY_EMAIL = "fer@noisia.ai";
 
   const EVENT = {
     uid: "listenup-5-0@listenup.lat",
@@ -30,6 +27,16 @@ if (form) {
     role: (value) => (value.trim().length > 0 ? "" : "Indica tu puesto o rol."),
     city: (value) => (value.trim().length > 0 ? "" : "Indica tu ciudad."),
     linkedin: (value) => (!value.trim() || URL_RE.test(value.trim()) ? "" : "Usa un enlace valido (https://...)."),
+  };
+
+  const SERVER_FIELD_MESSAGES = {
+    name: "Cuentanos tu nombre completo.",
+    email: "Revisa tu correo, parece que falta algo.",
+    company: "Indica tu empresa.",
+    role: "Indica tu puesto o rol.",
+    city: "Indica tu ciudad.",
+    linkedin: "Usa un enlace valido (https://...).",
+    consent: "Necesitamos tu consentimiento para registrarte.",
   };
 
   function setFieldError(name, message) {
@@ -76,30 +83,7 @@ if (form) {
     ].join("\r\n");
   }
 
-  function buildMailtoUrl(payload) {
-    const subject = `Nuevo registro ${EVENT.name}`;
-    const body = [
-      `Nuevo registro para ${EVENT.name} (${EVENT.dateLabel}, ${EVENT.city}).`,
-      "",
-      `Nombre: ${payload.name}`,
-      `Email: ${payload.email}`,
-      `Empresa: ${payload.company}`,
-      `Puesto/rol: ${payload.role}`,
-      `Ciudad: ${payload.city}`,
-      `LinkedIn: ${payload.linkedin || "-"}`,
-      `Consentimiento para recibir comunicaciones: ${payload.consent ? "Si" : "No"}`,
-      `Pagina origen: ${payload.sourcePage}`,
-      `Fecha de registro: ${payload.timestamp}`,
-    ].join("\n");
-
-    const params = new URLSearchParams({ subject, body });
-    if (payload.email) params.set("cc", payload.email);
-
-    // mailto (RFC 6068) espera %20 para espacios; URLSearchParams usa "+".
-    return `mailto:${NOTIFY_EMAIL}?${params.toString().replace(/\+/g, "%20")}`;
-  }
-
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
     setStatus("");
 
@@ -136,26 +120,52 @@ if (form) {
       linkedin: form.elements.namedItem("linkedin").value.trim(),
       consent: consentInput.checked,
       sourcePage: window.location.href,
-      timestamp: new Date().toISOString(),
+      empresaWeb: honeypot ? honeypot.value : "",
     };
 
-    // Honeypot anti-spam: si el campo oculto viene lleno, no abrimos el cliente de correo.
-    if (honeypot && honeypot.value) {
+    submitButton.disabled = true;
+    submitButton.textContent = "Enviando...";
+
+    try {
+      const response = await fetch("/api/event-registration", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        if (result.error === "validation_error" && result.fields) {
+          Object.entries(result.fields).forEach(([name, code]) => {
+            const message = SERVER_FIELD_MESSAGES[name] || "Revisa este campo.";
+            if (name === "consent") {
+              consentError.textContent = message;
+              consentError.classList.add("is-visible");
+            } else {
+              setFieldError(name, message);
+            }
+          });
+          setStatus("Revisa los campos marcados e intenta de nuevo.", true);
+        } else {
+          setStatus("No pudimos procesar tu registro. Intenta de nuevo en unos minutos.", true);
+        }
+        return;
+      }
+
+      if (icsLink) {
+        const blob = new Blob([buildEventIcs()], { type: "text/calendar" });
+        icsLink.href = URL.createObjectURL(blob);
+      }
+
       form.hidden = true;
       successPanel.hidden = false;
       successPanel.focus();
-      return;
+    } catch (error) {
+      setStatus("No pudimos conectar con el servidor. Revisa tu conexion e intenta de nuevo.", true);
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = "Confirmar mi registro";
     }
-
-    if (icsLink) {
-      const blob = new Blob([buildEventIcs()], { type: "text/calendar" });
-      icsLink.href = URL.createObjectURL(blob);
-    }
-
-    form.hidden = true;
-    successPanel.hidden = false;
-    successPanel.focus();
-
-    window.location.href = buildMailtoUrl(payload);
   });
 }

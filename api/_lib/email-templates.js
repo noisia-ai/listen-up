@@ -1,5 +1,8 @@
 import { EVENT } from "./event.js";
 
+const SITE_URL = "https://listenuplatam.com";
+const EVENT_PAGE_URL = `${SITE_URL}/eventos/listenup-5-0/`;
+
 function escapeHtml(value) {
   return String(value)
     .replace(/&/g, "&amp;")
@@ -31,9 +34,18 @@ export function attendeeEmailHtml(data) {
               <td style="padding: 6px 0;">${escapeHtml(EVENT.city)}</td>
             </tr>
           </table>
-          <p style="margin: 0 0 20px; font-size: 14px; line-height: 1.6; color: #44445a;">
+          <p style="margin: 0 0 24px; font-size: 14px; line-height: 1.6; color: #44445a;">
             Adjuntamos un archivo <strong>.ics</strong> para que agregues el evento a tu calendario (Save the Date).
           </p>
+          <table role="presentation" style="margin: 0 0 24px;">
+            <tr>
+              <td style="border-radius: 999px; background: #ee5a6f;">
+                <a href="${EVENT_PAGE_URL}" style="display: inline-block; padding: 14px 28px; color: #ffffff; font-size: 14px; font-weight: 700; text-decoration: none; border-radius: 999px;">
+                  Ver detalles del evento
+                </a>
+              </td>
+            </tr>
+          </table>
           <p style="margin: 0; font-size: 13px; line-height: 1.6; color: #e85d70; font-weight: 700;">
             Cupo limitado: tu confirmacion final queda sujeta a disponibilidad.
           </p>
