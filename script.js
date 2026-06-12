@@ -47,23 +47,25 @@ if ("IntersectionObserver" in window) {
   revealItems.forEach((item) => item.classList.add("is-visible"));
 }
 
-signupForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const email = emailInput.value.trim();
-  const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+if (signupForm) {
+  signupForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const email = emailInput.value.trim();
+    const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-  formNote.classList.remove("is-error", "is-success");
+    formNote.classList.remove("is-error", "is-success");
 
-  if (!isValid) {
-    formNote.textContent = "Revisa el correo: parece que falta algo.";
-    formNote.classList.add("is-error");
-    emailInput.setAttribute("aria-invalid", "true");
-    emailInput.focus();
-    return;
-  }
+    if (!isValid) {
+      formNote.textContent = "Revisa el correo: parece que falta algo.";
+      formNote.classList.add("is-error");
+      emailInput.setAttribute("aria-invalid", "true");
+      emailInput.focus();
+      return;
+    }
 
-  emailInput.setAttribute("aria-invalid", "false");
-  formNote.textContent = "Listo. Te escribiremos con lo proximo de ListenUp!.";
-  formNote.classList.add("is-success");
-  signupForm.reset();
-});
+    emailInput.setAttribute("aria-invalid", "false");
+    formNote.textContent = "Listo. Te escribiremos con lo proximo de ListenUp!.";
+    formNote.classList.add("is-success");
+    signupForm.reset();
+  });
+}
