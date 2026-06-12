@@ -371,12 +371,13 @@ summary:focus-visible {
 .hero-event-card {
   position: absolute;
   right: max(20px, calc((100% - var(--max)) / 2));
-  bottom: clamp(28px, 6dvh, 56px);
+  top: 50%;
+  transform: translateY(-50%);
   z-index: 2;
   display: flex;
   width: min(320px, calc(100% - 40px));
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 10px;
   padding: 22px;
   border: 1px solid rgba(255, 255, 255, 0.16);
@@ -385,6 +386,7 @@ summary:focus-visible {
     linear-gradient(150deg, rgba(52, 50, 230, 0.32), rgba(7, 7, 17, 0.92)),
     var(--surface);
   box-shadow: var(--shadow);
+  text-align: center;
 }
 
 .hero-event-card h3 {
@@ -402,6 +404,7 @@ summary:focus-visible {
 .hero-event-card__meta {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 8px 16px;
   color: var(--blue-bright);
   font-family: var(--font-display);
@@ -487,6 +490,14 @@ summary:focus-visible {
 .section {
   padding-block: clamp(61px, 7.65vw, 104px);
   scroll-margin-top: 118px;
+}
+
+.participate {
+  padding-bottom: 0;
+}
+
+#patrocinios {
+  padding-top: clamp(100px, 3vw, 40px);
 }
 
 .section-head {
@@ -830,7 +841,7 @@ summary:focus-visible {
   min-height: 260px;
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: flex-start;
   padding: 28px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 20px;
@@ -862,7 +873,8 @@ summary:focus-visible {
 }
 
 .resource-card p {
-  margin-top: 12px;
+  margin-top: auto;
+  padding-top: 12px;
   color: var(--muted);
 }
 
@@ -873,7 +885,7 @@ summary:focus-visible {
 }
 
 .participate-panel {
-  min-height: 430px;
+  min-height: 320px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -995,11 +1007,13 @@ summary:focus-visible {
 
 .team-member h3 {
   margin-top: 10px;
+  min-height: 3.2em;
   font-size: 1.24rem;
 }
 
 .team-member__meta {
   margin-top: 10px;
+  min-height: 2.9em;
   color: #eeeeff;
   font-family: var(--font-display);
   font-size: 0.9rem;
@@ -1791,7 +1805,8 @@ details p {
     position: static;
     width: 100%;
     max-width: 380px;
-    margin-top: 28px;
+    margin: 28px 0 0;
+    transform: none;
   }
 }
 
