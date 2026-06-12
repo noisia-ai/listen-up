@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Registro ListenUp! 5.0 | CDMX, 13 de agosto de 2026</title>
+    <meta
+      name="description"
+      content="Registrate gratis a ListenUp! 5.0: Buen Fin & Black Friday, como piensa el consumidor mexicano. CDMX, 13 de agosto de 2026."
+    />
+    <meta property="og:title" content="ListenUp! 5.0 | Registro" />
+    <meta
+      property="og:description"
+      content="Buen Fin & Black Friday: como piensa el consumidor mexicano. CDMX, 13 de agosto de 2026. Evento gratuito."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="../../assets/hero-community.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <div class="announce" role="status">
+      <span class="announce__dot" aria-hidden="true"></span>
+      <a href="#registro">Registro abierto: ListenUp! 5.0, CDMX, 13 de agosto de 2026</a>
+    </div>
+
+    <header class="site-header" id="siteHeader">
+      <div class="container header-grid">
+        <a class="brand" href="../../#inicio" aria-label="ListenUp! inicio">
+          <img src="../../assets/listenup-logo-white.svg" alt="ListenUp!" width="112" height="88" />
+        </a>
+
+        <nav class="desktop-nav" aria-label="Navegacion principal">
+          <a href="../../#eventos">Eventos</a>
+          <a href="../../#comunidad">Comunidad</a>
+          <a href="../../#historia">Historia</a>
+          <a href="../../#recursos">Blog</a>
+          <a href="../../#patrocinios">Patrocinios</a>
+          <a href="../../#equipo">Equipo</a>
+        </nav>
+
+        <div class="header-actions">
+          <a class="button button--small button--primary" href="../../#unete">Unete</a>
+          <button class="menu-button" type="button" id="menuButton" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+            <span></span><span></span>
+          </button>
+        </div>
+      </div>
+
+      <nav class="mobile-menu" id="mobileMenu" aria-label="Menu movil">
+        <a href="../../#eventos">Eventos</a>
+        <a href="../../#comunidad">Comunidad</a>
+        <a href="../../#historia">Historia</a>
+        <a href="../../#recursos">Blog</a>
+        <a href="../../#patrocinios">Patrocinios</a>
+        <a href="../../#equipo">Equipo</a>
+        <a class="button button--primary" href="../../#unete">Unete a la comunidad</a>
+      </nav>
+    </header>
+
+    <main id="contenido">
+      <section class="section register-hero">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="eyebrow">Registro · Evento gratuito</p>
+            <h1>ListenUp! 5.0</h1>
+            <p>Buen Fin &amp; Black Friday: como piensa el consumidor mexicano.</p>
+          </div>
+
+          <div class="event-summary reveal">
+            <div class="event-summary__meta">
+              <span>13 de agosto de 2026</span>
+              <span>CDMX</span>
+              <span class="tag tag--coral">Cupo limitado</span>
+            </div>
+            <p>
+              Una sesion para convertir senales sociales en decisiones de temporada: planeacion, mensajes, riesgos y
+              oportunidades de cara al Buen Fin y Black Friday. Charlas, paneles y networking senior. Sin costo.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section register-section" id="registro">
+        <div class="container register-layout">
+          <div class="section-head reveal">
+            <p class="eyebrow">Reserva tu lugar</p>
+            <h2>Completa tus datos para registrarte.</h2>
+            <p>Te enviaremos la confirmacion con el Save the Date a tu correo.</p>
+          </div>
+
+          <div class="register-card reveal">
+            <form class="register-form" id="registerForm" novalidate>
+              <div
+                class="register-form__honeypot"
+                aria-hidden="true"
+              >
+                <label for="empresaWeb">No llenar este campo</label>
+                <input id="empresaWeb" name="empresaWeb" type="text" tabindex="-1" autocomplete="off" />
+              </div>
+
+              <div class="field-grid">
+                <div class="field">
+                  <label for="name">Nombre completo</label>
+                  <input id="name" name="name" type="text" autocomplete="name" required />
+                  <p class="field__error" id="nameError"></p>
+                </div>
+
+                <div class="field">
+                  <label for="email">Correo de trabajo</label>
+                  <input id="email" name="email" type="email" autocomplete="email" required />
+                  <p class="field__error" id="emailError"></p>
+                </div>
+
+                <div class="field">
+                  <label for="company">Empresa</label>
+                  <input id="company" name="company" type="text" autocomplete="organization" required />
+                  <p class="field__error" id="companyError"></p>
+                </div>
+
+                <div class="field">
+                  <label for="role">Puesto / rol</label>
+                  <input id="role" name="role" type="text" autocomplete="organization-title" required />
+                  <p class="field__error" id="roleError"></p>
+                </div>
+
+                <div class="field">
+                  <label for="city">Ciudad</label>
+                  <input id="city" name="city" type="text" autocomplete="address-level2" required />
+                  <p class="field__error" id="cityError"></p>
+                </div>
+
+                <div class="field">
+                  <label for="linkedin">LinkedIn <span class="field__optional">(opcional)</span></label>
+                  <input id="linkedin" name="linkedin" type="url" autocomplete="url" placeholder="https://linkedin.com/in/tu-usuario" />
+                  <p class="field__error" id="linkedinError"></p>
+                </div>
+              </div>
+
+              <div class="field field--checkbox">
+                <input id="consent" name="consent" type="checkbox" required />
+                <label for="consent">Acepto recibir comunicaciones de ListenUp! sobre eventos y contenido.</label>
+                <p class="field__error" id="consentError"></p>
+              </div>
+
+              <p class="form-status" id="registerStatus" role="alert"></p>
+
+              <button class="button button--primary" type="submit" id="registerSubmit">Confirmar mi registro</button>
+            </form>
+
+            <div class="register-success" id="registerSuccess" role="status" tabindex="-1" hidden>
+              <span class="tag tag--coral">Casi listo</span>
+              <h3>Confirma tu registro desde tu correo.</h3>
+              <p>
+                Abrimos tu cliente de correo con tu registro prellenado para el equipo de ListenUp! (con copia a ti).
+                Solo dale enviar para confirmar tu lugar.
+              </p>
+              <p>
+                Tambien puedes descargar el evento para tu calendario (Save the Date):
+                <a class="register-success__ics" id="registerIcs" download="listenup-5-0.ics">Descargar .ics</a>
+              </p>
+              <p class="register-success__note">
+                Cupo limitado: tu confirmacion final queda sujeta a disponibilidad.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="brand footer-brand" href="../../#inicio" aria-label="ListenUp! inicio">
+            <img src="../../assets/listenup-logo-white.svg" alt="ListenUp!" width="96" height="75" />
+          </a>
+          <p>La comunidad de Social Intelligence mas grande de LATAM. Independiente, senior y marca-agnostica.</p>
+        </div>
+        <nav aria-label="Footer comunidad">
+          <h2>Comunidad</h2>
+          <a href="../../#comunidad">Que es ListenUp!</a>
+          <a href="../../#eventos">Eventos</a>
+          <a href="../../#historia">Historia</a>
+          <a href="../../#unete">Unete</a>
+        </nav>
+        <nav aria-label="Footer empresas">
+          <h2>Empresas</h2>
+          <a href="../../#patrocinios">Patrocinios</a>
+          <a href="mailto:hola@listenup.lat?subject=Contacto%20ListenUp">Contacto</a>
+          <a href="../../#recursos">Blog</a>
+        </nav>
+      </div>
+      <div class="container footer-bottom">
+        <span>© ListenUp! 2026 · CDMX, Mexico</span>
+        <span>Aviso de privacidad y terminos pendientes de publicacion.</span>
+      </div>
+    </footer>
+
+    <script src="../../script.js"></script>
+    <script src="register.js"></script>
+  </body>
+</html>
