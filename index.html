@@ -413,17 +413,105 @@
           <p class="eyebrow">Unete gratis</p>
           <h2>El Social Intelligence de LATAM por fin tiene casa.</h2>
           <p>Recibe lo proximo: eventos, contenido y comunidad. Nada de spam.</p>
-          <form class="signup-form" id="signupForm" novalidate>
-            <label for="email">Correo de trabajo</label>
-            <div class="signup-form__row">
-              <input id="email" name="email" type="email" autocomplete="email" placeholder="tu@empresa.com" required />
-              <button class="button button--primary" type="submit">Quiero unirme</button>
-            </div>
-            <p class="form-note" id="formNote">Es gratis. Es senior. Es independiente.</p>
-          </form>
+          <div class="final-cta__actions">
+            <button class="button button--primary" type="button" data-modal-type="invitado">Quiero ser invitado</button>
+            <button class="button button--secondary" type="button" data-modal-type="patrocinador">Quiero patrocinar</button>
+          </div>
+          <p class="form-note">Es gratis. Es senior. Es independiente.</p>
         </div>
       </section>
     </main>
+
+    <!-- Modal de registro a la comunidad -->
+    <div class="community-modal" id="communityModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+      <div class="community-modal__backdrop" id="modalBackdrop"></div>
+      <div class="community-modal__card">
+        <button class="community-modal__close" id="modalClose" type="button" aria-label="Cerrar">&#x2715;</button>
+
+        <div class="community-modal__type-selector" id="modalTypeSelector">
+          <p class="eyebrow">Como quieres participar</p>
+          <div class="community-modal__types">
+            <button type="button" class="community-modal__type-btn" data-type="invitado">
+              <strong>Invitado</strong>
+              <span>Quiero asistir a eventos y ser parte de la comunidad</span>
+            </button>
+            <button type="button" class="community-modal__type-btn" data-type="patrocinador">
+              <strong>Patrocinador</strong>
+              <span>Quiero conectar mi marca con la comunidad ListenUp!</span>
+            </button>
+          </div>
+        </div>
+
+        <form class="community-modal__form register-form" id="communityForm" novalidate hidden>
+          <div aria-hidden="true" style="position:absolute;left:-9999px;">
+            <label for="comunityEmpresaWeb">No llenar</label>
+            <input id="comunityEmpresaWeb" name="empresaWeb" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <input type="hidden" name="type" id="communityType" />
+
+          <p class="community-modal__selected-type" id="modalSelectedType"></p>
+
+          <div class="field-grid">
+            <div class="field">
+              <label for="cm-name">Nombre completo</label>
+              <input id="cm-name" name="name" type="text" autocomplete="name" required />
+              <p class="field__error" id="cm-nameError"></p>
+            </div>
+            <div class="field">
+              <label for="cm-email">Correo de trabajo</label>
+              <input id="cm-email" name="email" type="email" autocomplete="email" required />
+              <p class="field__error" id="cm-emailError"></p>
+            </div>
+            <div class="field">
+              <label for="cm-company">Empresa</label>
+              <input id="cm-company" name="company" type="text" autocomplete="organization" required />
+              <p class="field__error" id="cm-companyError"></p>
+            </div>
+            <div class="field">
+              <label for="cm-role">Puesto / rol</label>
+              <input id="cm-role" name="role" type="text" autocomplete="organization-title" required />
+              <p class="field__error" id="cm-roleError"></p>
+            </div>
+            <div class="field">
+              <label for="cm-city">Ciudad</label>
+              <input id="cm-city" name="city" type="text" autocomplete="address-level2" required />
+              <p class="field__error" id="cm-cityError"></p>
+            </div>
+            <div class="field">
+              <label for="cm-linkedin">LinkedIn <span class="field__optional">(opcional)</span></label>
+              <input id="cm-linkedin" name="linkedin" type="url" autocomplete="url" placeholder="https://linkedin.com/in/tu-usuario" />
+              <p class="field__error" id="cm-linkedinError"></p>
+            </div>
+          </div>
+
+          <div class="field community-modal__interest-field" id="interestField" hidden>
+            <label for="cm-interest">¿Que herramienta o marca representas?</label>
+            <input id="cm-interest" name="interest" type="text" />
+            <p class="field__error" id="cm-interestError"></p>
+          </div>
+
+          <div class="field field--checkbox">
+            <input id="cm-consent" name="consent" type="checkbox" required />
+            <label for="cm-consent" id="cm-consentLabel">Acepto recibir comunicaciones de ListenUp! sobre eventos y contenido.</label>
+            <p class="field__error" id="cm-consentError"></p>
+          </div>
+
+          <p class="form-status" id="communityStatus" role="alert"></p>
+
+          <div class="community-modal__form-actions">
+            <button class="button button--secondary" type="button" id="modalBack">Atras</button>
+            <button class="button button--primary" type="submit" id="communitySubmit">Enviar</button>
+          </div>
+        </form>
+
+        <div class="community-modal__success" id="communitySuccess" hidden>
+          <span class="tag tag--coral" id="successTag"></span>
+          <h3 id="modalTitle">Listo, revisa tu correo.</h3>
+          <p id="successMessage"></p>
+        </div>
+      </div>
+    </div>
 
     <footer class="footer">
       <div class="container footer-grid">
@@ -454,5 +542,6 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="community-signup.js"></script>
   </body>
 </html>
