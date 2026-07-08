@@ -417,6 +417,23 @@ summary:focus-visible {
   letter-spacing: 0.02em;
 }
 
+.hero-event-card__sponsor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 4px 0 2px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+
+.hero-event-card__sponsor img {
+  vertical-align: middle;
+}
+
 .hero-event-card .button {
   margin-top: 4px;
 }
