@@ -2,6 +2,7 @@ import { Resend } from "resend";
 import { EVENT } from "./_lib/event.js";
 import { buildEventIcs } from "./_lib/ics.js";
 import { attendeeEmailHtml, teamEmailHtml } from "./_lib/email-templates.js";
+import { appendSignupRow } from "./_lib/sheets.js";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const URL_RE = /^https?:\/\/.+/i;
@@ -86,16 +87,21 @@ export default async function handler(req, res) {
     city: String(body.city).trim(),
     linkedin: body.linkedin ? String(body.linkedin).trim() : "",
     consent: Boolean(body.consent),
+    shareBuzzmonitor: Boolean(body.shareBuzzmonitor),
     sourcePage: body.sourcePage ? String(body.sourcePage).trim() : "",
     timestamp: new Date().toISOString(),
   };
 
+  // Escribir al sheet (awaited para que no se corte en serverless; fallo no bloquea respuesta)
+  try {
+    await appendSignupRow(data);
+  } catch (err) {
+    console.error("[event-registration] error escribiendo al sheet", err.message);
+  }
+
   const apiKey = process.env.RESEND_API_KEY;
 
   if (!apiKey) {
-    // Resend no esta configurado todavia (dominio pendiente de verificacion).
-    // No se pierden registros: respondemos exito para no bloquear el front,
-    // pero dejamos constancia en logs sin datos personales.
     console.log("[event-registration] RESEND_API_KEY no configurada; correo omitido", {
       timestamp: data.timestamp,
       sourcePage: data.sourcePage || null,

@@ -119,6 +119,7 @@ if (form) {
       city: form.elements.namedItem("city").value.trim(),
       linkedin: form.elements.namedItem("linkedin").value.trim(),
       consent: consentInput.checked,
+      shareBuzzmonitor: form.elements.namedItem("shareBuzzmonitor")?.checked ?? false,
       sourcePage: window.location.href,
       empresaWeb: honeypot ? honeypot.value : "",
     };
