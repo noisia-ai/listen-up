@@ -26,10 +26,6 @@ function validate(body) {
     errors.linkedin = "invalid_url";
   }
 
-  if (!body.consent) {
-    errors.consent = "required";
-  }
-
   return Object.keys(errors).length ? errors : null;
 }
 
@@ -86,8 +82,8 @@ export default async function handler(req, res) {
     role: String(body.role).trim(),
     city: String(body.city).trim(),
     linkedin: body.linkedin ? String(body.linkedin).trim() : "",
+    formType: "registro",
     consent: Boolean(body.consent),
-    shareBuzzmonitor: Boolean(body.shareBuzzmonitor),
     sourcePage: body.sourcePage ? String(body.sourcePage).trim() : "",
     timestamp: new Date().toISOString(),
   };

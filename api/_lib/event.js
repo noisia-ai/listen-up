@@ -27,7 +27,7 @@ function slugify(value) {
 const EVENT_NAME = process.env.EVENT_NAME || "ListenUp! 5.0";
 const EVENT_DATE = process.env.EVENT_DATE || "2026-08-13";
 const EVENT_CITY = process.env.EVENT_CITY || "CDMX";
-const EVENT_TOPIC = "Buen Fin & Black Friday: como piensa el consumidor mexicano.";
+const EVENT_TOPIC = "Del insight a la acción: Cómo la IA está redefiniendo el Social Listening";
 
 export const EVENT = {
   uid: `${slugify(EVENT_NAME)}@listenup.lat`,

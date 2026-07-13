@@ -6,8 +6,10 @@ const ROW = (data) => [
   data.company,
   data.role,
   data.city,
+  data.formType || "",
+  data.interest || "",
   data.linkedin || "",
-  data.shareBuzzmonitor ? "Sí" : "No",
+  data.consent ? "Sí" : "No",
 ];
 
 export async function appendSignupRow(data) {
@@ -33,7 +35,7 @@ export async function appendSignupRow(data) {
 
   await sheets.spreadsheets.values.append({
     spreadsheetId: sheetId,
-    range: `${sheetTab}!A:G`,
+    range: `${sheetTab}!A:I`,
     valueInputOption: "USER_ENTERED",
     requestBody: { values: [ROW(data)] },
   });
