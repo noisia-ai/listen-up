@@ -86,7 +86,7 @@ export function invitadoAttendeeHtml(data) {
       <li>Acceso a la red de lideres de marketing, research e insights de LATAM</li>
     </ul>
     <p style="margin: 0 0 20px; font-size: 14px; line-height: 1.6; color: #44445a;">
-      Nuestro proximo evento es <strong>ListenUp! 5.0</strong> el <strong>13 de agosto de 2026 en CDMX</strong>: Buen Fin &amp; Black Friday, como piensa el consumidor mexicano.
+      Nuestro proximo evento es <strong>ListenUp! 5.0</strong> el <strong>13 de agosto de 2026 en CDMX</strong>: Del insight a la acción: Cómo la IA está redefiniendo el Social Listening.
     </p>
     ${ctaButton(`${SITE_URL}/eventos/listenup-5-0/`, "Ver ListenUp! 5.0")}
     <p style="margin: 0; font-size: 13px; line-height: 1.6; color: #82829b;">

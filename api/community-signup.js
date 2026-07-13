@@ -5,6 +5,7 @@ import {
   patrocinadorAttendeeHtml,
   patrocinadorTeamHtml,
 } from "./_lib/community-email-templates.js";
+import { appendSignupRow } from "./_lib/sheets.js";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const URL_RE = /^https?:\/\/.+/i;
@@ -26,10 +27,6 @@ function validate(body) {
 
   if (body.linkedin && !URL_RE.test(String(body.linkedin).trim())) {
     errors.linkedin = "invalid_url";
-  }
-
-  if (!body.consent) {
-    errors.consent = "required";
   }
 
   if (!["invitado", "patrocinador"].includes(body.type)) {
@@ -84,11 +81,18 @@ export default async function handler(req, res) {
     city: String(body.city).trim(),
     linkedin: body.linkedin ? String(body.linkedin).trim() : "",
     interest: body.interest ? String(body.interest).trim() : "",
+    formType: body.type === "patrocinador" ? "patrocinador" : "modal",
     consent: Boolean(body.consent),
     type: body.type,
     sourcePage: body.sourcePage ? String(body.sourcePage).trim() : "",
     timestamp: new Date().toISOString(),
   };
+
+  try {
+    await appendSignupRow(data);
+  } catch (err) {
+    console.error("[community-signup] error escribiendo al sheet", err.message);
+  }
 
   const apiKey = process.env.RESEND_API_KEY;
 

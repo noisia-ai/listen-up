@@ -66,9 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     var consentLabel = document.getElementById("cm-consentLabel");
     if (consentLabel) {
-      consentLabel.textContent = type === "patrocinador"
-        ? "Acepto que el equipo de ListenUp! se ponga en contacto conmigo para hablar de oportunidades de patrocinio."
-        : "Acepto recibir comunicaciones de ListenUp! sobre eventos y contenido.";
+      consentLabel.textContent = "Acepto recibir informacion de ListenUp! y sus patrocinadores.";
     }
 
     var firstField = form.querySelector("input:not([type=hidden])");
@@ -161,17 +159,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       var consentInput = form.querySelector("[name='consent']");
-      var consentError = document.getElementById("cm-consentError");
-      if (consentInput && !consentInput.checked) {
-        if (consentError) {
-          consentError.textContent = "Necesitamos tu consentimiento para registrarte.";
-          consentError.classList.add("is-visible");
-        }
-        if (!firstInvalid) firstInvalid = consentInput;
-      } else if (consentError) {
-        consentError.textContent = "";
-        consentError.classList.remove("is-visible");
-      }
 
       if (firstInvalid) {
         firstInvalid.focus();
@@ -211,12 +198,8 @@ document.addEventListener("DOMContentLoaded", function () {
           if (result.error === "validation_error" && result.fields) {
             Object.entries(result.fields).forEach(function (entry) {
               var name = entry[0];
-              var fieldMsg = { name: "Cuentanos tu nombre completo.", email: "Revisa tu correo.", company: "Indica tu empresa.", role: "Indica tu puesto o rol.", city: "Indica tu ciudad.", linkedin: "Usa un enlace valido (https://...).", consent: "Necesitamos tu consentimiento." };
-              if (name === "consent") {
-                if (consentError) { consentError.textContent = fieldMsg.consent; consentError.classList.add("is-visible"); }
-              } else {
-                setFieldError(name, fieldMsg[name] || "Revisa este campo.");
-              }
+              var fieldMsg = { name: "Cuentanos tu nombre completo.", email: "Revisa tu correo.", company: "Indica tu empresa.", role: "Indica tu puesto o rol.", city: "Indica tu ciudad.", linkedin: "Usa un enlace valido (https://...)." };
+              setFieldError(name, fieldMsg[name] || "Revisa este campo.");
             });
             setStatus("Revisa los campos marcados e intenta de nuevo.", true);
           } else {

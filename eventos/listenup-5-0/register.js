@@ -13,7 +13,7 @@ if (form) {
   const EVENT = {
     uid: "listenup-5-0@listenup.lat",
     name: "ListenUp! 5.0",
-    topic: "Buen Fin & Black Friday: como piensa el consumidor mexicano.",
+    topic: "Del insight a la acción: Cómo la IA está redefiniendo el Social Listening",
     city: "CDMX",
     dateLabel: "13 de agosto de 2026",
     startUTC: "20260813T160000Z",
@@ -36,7 +36,6 @@ if (form) {
     role: "Indica tu puesto o rol.",
     city: "Indica tu ciudad.",
     linkedin: "Usa un enlace valido (https://...).",
-    consent: "Necesitamos tu consentimiento para registrarte.",
   };
 
   function setFieldError(name, message) {
@@ -95,17 +94,6 @@ if (form) {
       if (message && !firstInvalid) firstInvalid = input;
     });
 
-    const consentInput = form.elements.namedItem("consent");
-    const consentError = document.querySelector("#consentError");
-    if (!consentInput.checked) {
-      consentError.textContent = "Necesitamos tu consentimiento para registrarte.";
-      consentError.classList.add("is-visible");
-      if (!firstInvalid) firstInvalid = consentInput;
-    } else {
-      consentError.textContent = "";
-      consentError.classList.remove("is-visible");
-    }
-
     if (firstInvalid) {
       firstInvalid.focus();
       return;
@@ -118,8 +106,7 @@ if (form) {
       role: form.elements.namedItem("role").value.trim(),
       city: form.elements.namedItem("city").value.trim(),
       linkedin: form.elements.namedItem("linkedin").value.trim(),
-      consent: consentInput.checked,
-      shareBuzzmonitor: form.elements.namedItem("shareBuzzmonitor")?.checked ?? false,
+      consent: form.elements.namedItem("consent")?.checked ?? false,
       sourcePage: window.location.href,
       empresaWeb: honeypot ? honeypot.value : "",
     };
@@ -140,12 +127,7 @@ if (form) {
         if (result.error === "validation_error" && result.fields) {
           Object.entries(result.fields).forEach(([name, code]) => {
             const message = SERVER_FIELD_MESSAGES[name] || "Revisa este campo.";
-            if (name === "consent") {
-              consentError.textContent = message;
-              consentError.classList.add("is-visible");
-            } else {
-              setFieldError(name, message);
-            }
+            setFieldError(name, message);
           });
           setStatus("Revisa los campos marcados e intenta de nuevo.", true);
         } else {
