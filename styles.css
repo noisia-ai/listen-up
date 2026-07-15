@@ -445,7 +445,7 @@ summary:focus-visible {
 
 .stats-band dl {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
   margin: 0;
   padding: 30px 0;
@@ -635,6 +635,22 @@ summary:focus-visible {
   margin-top: auto;
 }
 
+.event-card p.event-card__sponsor {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.event-card__sponsor img {
+  vertical-align: middle;
+}
+
 .past-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -705,6 +721,107 @@ summary:focus-visible {
   object-fit: cover;
   border-radius: 10px;
   filter: saturate(0.92) contrast(1.04);
+}
+
+.gallery-strip__item {
+  display: block;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.gallery-strip__item img {
+  transition: filter 0.2s ease;
+}
+
+.gallery-strip__item:hover img,
+.gallery-strip__item:focus-visible img {
+  filter: saturate(1) contrast(1);
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.lightbox__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(7, 7, 17, 0.92);
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+}
+
+.lightbox__image {
+  position: relative;
+  z-index: 1;
+  max-width: min(100%, 1100px);
+  max-height: calc(100dvh - 40px);
+  border-radius: 12px;
+  object-fit: contain;
+  box-shadow: var(--shadow);
+}
+
+.lightbox__close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  font-size: 15px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.lightbox__close:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.lightbox__nav {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  width: 48px;
+  height: 48px;
+  transform: translateY(-50%);
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  font-size: 24px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.lightbox__nav:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.lightbox__nav--prev {
+  left: 18px;
+}
+
+.lightbox__nav--next {
+  right: 18px;
+}
+
+@media (max-width: 640px) {
+  .lightbox__nav {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
 }
 
 .community-layout {
