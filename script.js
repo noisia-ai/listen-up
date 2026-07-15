@@ -69,3 +69,48 @@ if (signupForm) {
     signupForm.reset();
   });
 }
+
+const lightbox = document.querySelector("#lightbox");
+
+if (lightbox) {
+  const lightboxImage = document.querySelector("#lightboxImage");
+  const lightboxBackdrop = document.querySelector("#lightboxBackdrop");
+  const lightboxClose = document.querySelector("#lightboxClose");
+  const lightboxPrev = document.querySelector("#lightboxPrev");
+  const lightboxNext = document.querySelector("#lightboxNext");
+  const galleryImages = Array.from(document.querySelectorAll(".gallery-strip__item img"));
+  let currentIndex = 0;
+
+  function showImage(index) {
+    currentIndex = (index + galleryImages.length) % galleryImages.length;
+    const img = galleryImages[currentIndex];
+    lightboxImage.src = img.src;
+    lightboxImage.alt = img.alt;
+  }
+
+  function openLightbox(index) {
+    showImage(index);
+    lightbox.hidden = false;
+  }
+
+  function closeLightbox() {
+    lightbox.hidden = true;
+    lightboxImage.src = "";
+  }
+
+  document.querySelectorAll(".gallery-strip__item").forEach((item, index) => {
+    item.addEventListener("click", () => openLightbox(index));
+  });
+
+  lightboxBackdrop.addEventListener("click", closeLightbox);
+  lightboxClose.addEventListener("click", closeLightbox);
+  lightboxPrev.addEventListener("click", () => showImage(currentIndex - 1));
+  lightboxNext.addEventListener("click", () => showImage(currentIndex + 1));
+
+  document.addEventListener("keydown", (event) => {
+    if (lightbox.hidden) return;
+    if (event.key === "Escape") closeLightbox();
+    if (event.key === "ArrowLeft") showImage(currentIndex - 1);
+    if (event.key === "ArrowRight") showImage(currentIndex + 1);
+  });
+}
