@@ -208,14 +208,7 @@ document.addEventListener("DOMContentLoaded", function () {
           return;
         }
 
-        form.hidden = true;
-        successPanel.hidden = false;
-        if (successTag) successTag.textContent = type === "patrocinador" ? "Solicitud recibida" : "Bienvenido";
-        if (successMessage) {
-          successMessage.textContent = type === "patrocinador"
-            ? "Te enviamos un correo de confirmacion. Un miembro del equipo ListenUp! se pondra en contacto contigo pronto."
-            : "Ya eres parte de la comunidad de Social Intelligence mas grande de LATAM. Revisa tu correo.";
-        }
+        window.location.href = "/gracias/?tipo=" + (type === "patrocinador" ? "patrocinador" : "comunidad");
       } catch (_) {
         setStatus("No pudimos conectar con el servidor. Revisa tu conexion e intenta de nuevo.", true);
       } finally {
