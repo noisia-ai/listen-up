@@ -597,8 +597,9 @@ summary:focus-visible {
 .tag {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   min-height: 28px;
-  padding-inline: 11px;
+  padding: 4px 14px 0;
   border: 1px solid var(--line);
   border-radius: 999px;
   color: var(--muted);

@@ -85,10 +85,22 @@ export function invitadoAttendeeHtml(data) {
       <li>Contenido sobre social listening, social intelligence y tendencias de la region</li>
       <li>Acceso a la red de lideres de marketing, research e insights de LATAM</li>
     </ul>
-    <p style="margin: 0 0 20px; font-size: 14px; line-height: 1.6; color: #44445a;">
-      Nuestro proximo evento es <strong>ListenUp! 5.0</strong> el <strong>13 de agosto de 2026 en CDMX</strong>: Del insight a la acción: Cómo la IA está redefiniendo el Social Listening.
+    <p style="margin: 0 0 16px; font-size: 15px; line-height: 1.6; color: #44445a;">
+      Conectate con la comunidad:
     </p>
-    ${ctaButton(`${SITE_URL}/eventos/listenup-5-0/`, "Ver ListenUp! 5.0")}
+    <table role="presentation" style="margin: 0 0 24px;">
+      <tr>
+        <td style="padding-right: 8px;">
+          <a href="https://chat.whatsapp.com/Krm8UmYEYc36997hAJygyh?mode=gi_t" style="display: inline-block; padding: 10px 20px; border-radius: 999px; border: 1px solid #e5e3da; font-size: 13px; font-weight: 700; color: #1a1a2e; text-decoration: none;">WhatsApp</a>
+        </td>
+        <td style="padding-right: 8px;">
+          <a href="https://www.instagram.com/listenupmeetup/" style="display: inline-block; padding: 10px 20px; border-radius: 999px; border: 1px solid #e5e3da; font-size: 13px; font-weight: 700; color: #1a1a2e; text-decoration: none;">Instagram</a>
+        </td>
+        <td>
+          <a href="https://www.linkedin.com/company/listenup-socialintelligence-meetup/" style="display: inline-block; padding: 10px 20px; border-radius: 999px; border: 1px solid #e5e3da; font-size: 13px; font-weight: 700; color: #1a1a2e; text-decoration: none;">LinkedIn</a>
+        </td>
+      </tr>
+    </table>
     <p style="margin: 0; font-size: 13px; line-height: 1.6; color: #82829b;">
       ¿Tienes preguntas? Responde este correo o escribenos a <a href="mailto:hola@listenuplatam.com" style="color: #3432e6;">hola@listenuplatam.com</a>
     </p>

@@ -136,14 +136,7 @@ if (form) {
         return;
       }
 
-      if (icsLink) {
-        const blob = new Blob([buildEventIcs()], { type: "text/calendar" });
-        icsLink.href = URL.createObjectURL(blob);
-      }
-
-      form.hidden = true;
-      successPanel.hidden = false;
-      successPanel.focus();
+      window.location.href = "../../gracias/?tipo=registro";
     } catch (error) {
       setStatus("No pudimos conectar con el servidor. Revisa tu conexion e intenta de nuevo.", true);
     } finally {
