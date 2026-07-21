@@ -454,6 +454,7 @@ summary:focus-visible {
 .stats-band div {
   padding-right: 18px;
   border-right: 1px solid rgba(255, 255, 255, 0.22);
+  text-align: center;
 }
 
 .stats-band div:last-child {
@@ -1023,7 +1024,7 @@ summary:focus-visible {
 }
 
 .participate-panel {
-  min-height: 320px;
+  min-height: 380px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
