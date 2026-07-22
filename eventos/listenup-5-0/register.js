@@ -14,10 +14,10 @@ if (form) {
     uid: "listenup-5-0@listenup.lat",
     name: "ListenUp! 5.0",
     topic: "Del insight a la acción: Cómo la IA está redefiniendo el Social Listening",
-    city: "CDMX",
+    city: "Pata Negra Cuauhtémoc, Río Niagara 43, Cuauhtémoc, CDMX",
     dateLabel: "13 de agosto de 2026",
-    startUTC: "20260813T160000Z",
-    endUTC: "20260813T210000Z",
+    startUTC: "20260814T000000Z",
+    endUTC: "20260814T040000Z",
   };
 
   const fieldValidators = {
