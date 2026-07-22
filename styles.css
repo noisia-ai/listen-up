@@ -227,7 +227,7 @@ summary:focus-visible {
 }
 
 .brand img {
-  width: 96px;
+  width: 72px;
   height: auto;
 }
 
@@ -1500,7 +1500,9 @@ details p {
 .footer {
   padding-block: 58px 28px;
   border-top: 1px solid var(--line);
-  background: #080812;
+  background:
+    linear-gradient(145deg, rgba(52, 50, 230, 0.28), rgba(16, 16, 32, 0.96)),
+    var(--surface);
 }
 
 .footer-grid {
@@ -1573,7 +1575,7 @@ details p {
   padding-bottom: clamp(24px, 3vw, 40px);
   background-image: url("assets/listenup-5-0-hero-bg.jpg");
   background-size: cover;
-  background-position: center top;
+  background-position: center center;
   background-repeat: no-repeat;
 }
 
@@ -1588,7 +1590,7 @@ details p {
   padding: 22px 26px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 18px;
-  background: rgba(8, 10, 26, 0.72);
+  background: rgba(8, 10, 26, 0.62);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
@@ -1647,7 +1649,7 @@ details p {
   padding: 18px 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 18px;
-  background: rgba(8, 10, 26, 0.72);
+  background: rgba(8, 10, 26, 0.62);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
@@ -1747,19 +1749,25 @@ details p {
   font-size: 0.78rem;
 }
 
+@media (max-width: 900px) {
+  .register-hero {
+    background-position: left bottom;
+  }
+}
+
 @media (max-width: 640px) {
   .event-perks {
     grid-template-columns: 1fr;
   }
 
   .register-hero {
-    background-position: center center;
+    background-position: left bottom;
   }
 
   .event-summary,
   .sponsor-note,
   .beer-perk {
-    background: rgba(8, 10, 26, 0.82);
+    background: rgba(8, 10, 26, 0.72);
   }
 }
 
