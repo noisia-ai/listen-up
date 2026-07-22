@@ -1,6 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
   var modal = document.getElementById("communityModal");
-  if (!modal) return;
+
+  // En páginas sin modal, los botones redirigen al index con ?modal=tipo
+  if (!modal) {
+    document.querySelectorAll("[data-modal-type]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var tipo = btn.getAttribute("data-modal-type") || "invitado";
+        window.location.href = "/?modal=" + tipo;
+      });
+    });
+    return;
+  }
 
   var backdrop = document.getElementById("modalBackdrop");
   var closeBtn = document.getElementById("modalClose");
@@ -218,5 +228,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       }
     });
+  }
+
+  // Auto-abrir modal si la URL tiene ?modal=invitado o ?modal=patrocinador
+  var modalParam = new URLSearchParams(window.location.search).get("modal");
+  if (modalParam === "invitado" || modalParam === "patrocinador") {
+    openModal(modalParam);
+    // Limpiar el param de la URL sin recargar
+    var cleanUrl = window.location.pathname;
+    window.history.replaceState({}, "", cleanUrl);
   }
 });

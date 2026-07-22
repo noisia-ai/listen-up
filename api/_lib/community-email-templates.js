@@ -75,7 +75,7 @@ export function invitadoAttendeeHtml(data) {
   const body = `
     <p style="margin: 0 0 16px; font-size: 16px; color: #1a1a2e;">Hola ${escapeHtml(data.name)},</p>
     <p style="margin: 0 0 16px; font-size: 15px; line-height: 1.6; color: #44445a;">
-      Ya formas parte de la comunidad de Social Intelligence mas grande de LATAM. Independiente, senior y marca-agnostica.
+      Ya formas parte de la comunidad de Social Intelligence mas grande de LATAM. Independiente, senior y agnóstica.
     </p>
     <p style="margin: 0 0 20px; font-size: 15px; line-height: 1.6; color: #44445a;">
       A partir de ahora recibiras:

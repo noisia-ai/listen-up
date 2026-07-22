@@ -86,6 +86,23 @@
         border-color: var(--coral, #f06);
       }
       #icsLink { display: none; }
+      .thankyou__event-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin: 24px 0 8px;
+        padding: 20px 24px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        font-size: 0.9rem;
+        text-align: left;
+      }
+      .thankyou__event-meta span {
+        color: var(--muted);
+      }
+      .thankyou__event-meta strong {
+        color: var(--text);
+      }
       .thankyou__social {
         margin-top: 40px;
         padding-top: 32px;
@@ -136,7 +153,7 @@
         </nav>
 
         <div class="header-actions">
-          <a class="button button--small button--primary" href="../#unete">Unete -></a>
+          <button class="button button--small button--primary" type="button" data-modal-type="invitado">Unete -></button>
           <button class="menu-button" type="button" id="menuButton" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
             <span></span><span></span>
           </button>
@@ -150,7 +167,7 @@
         <a href="../blog/">Blog</a>
         <a href="../#patrocinios">Patrocinios</a>
         <a href="../#equipo">Equipo</a>
-        <a class="button button--primary" href="../#unete">Unete a la comunidad -></a>
+        <button class="button button--primary" type="button" data-modal-type="invitado">Unete a la comunidad -></button>
       </nav>
     </header>
 
@@ -161,6 +178,7 @@
           <p class="eyebrow" id="eyebrowEl"></p>
           <h1 id="titleEl"></h1>
           <p id="bodyEl"></p>
+          <div class="thankyou__event-meta" id="eventMetaEl" hidden></div>
           <p class="thankyou__note" id="noteEl"></p>
           <div class="thankyou__actions" id="actionsEl"></div>
           <div class="thankyou__social">
@@ -181,7 +199,7 @@
           <a class="brand footer-brand" href="../#inicio" aria-label="ListenUp! inicio">
             <img src="../assets/listenup-logo-white.webp" alt="ListenUp!" width="96" height="75" />
           </a>
-          <p>La comunidad de Social Intelligence mas grande de LATAM. Independiente, senior y marca-agnostica.</p>
+          <p>La comunidad de Social Intelligence mas grande de LATAM. Independiente, senior y agnóstica.</p>
         </div>
         <nav aria-label="Footer comunidad">
           <h2>Comunidad</h2>
@@ -252,6 +270,16 @@
         var noteEl = document.getElementById("noteEl");
         if (c.note) { noteEl.textContent = c.note; } else { noteEl.hidden = true; }
 
+        var eventMetaEl = document.getElementById("eventMetaEl");
+        if (tipo === "registro") {
+          eventMetaEl.removeAttribute("hidden");
+          eventMetaEl.innerHTML = [
+            "<span>📅 <strong>13 de agosto de 2026</strong> · 6:00 p.m. a 10:00 p.m.</span>",
+            "<span>📍 <strong>Pata Negra Cuauhtémoc</strong></span>",
+            "<span>Río Niagara 43, Cuauhtémoc, CDMX</span>",
+          ].join("");
+        }
+
         var actionsEl = document.getElementById("actionsEl");
         c.actions.forEach(function (action) {
           if (action.id === "icsBtn") {
@@ -280,11 +308,11 @@
             "BEGIN:VEVENT",
             "UID:listenup-5-0@listenup.lat",
             "DTSTAMP:" + now,
-            "DTSTART:20260813T160000Z",
-            "DTEND:20260813T210000Z",
+            "DTSTART:20260814T000000Z",
+            "DTEND:20260814T040000Z",
             "SUMMARY:ListenUp! 5.0",
             "DESCRIPTION:Del insight a la acción: Cómo la IA está redefiniendo el Social Listening",
-            "LOCATION:CDMX",
+            "LOCATION:Pata Negra Cuauhtémoc\\, Río Niagara 43\\, Cuauhtémoc\\, CDMX",
             "STATUS:CONFIRMED",
             "END:VEVENT",
             "END:VCALENDAR",
@@ -300,5 +328,6 @@
         }
       })();
     </script>
+      <script src="../community-signup.js"></script>
   </body>
 </html>
