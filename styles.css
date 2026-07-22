@@ -1603,6 +1603,235 @@ details p {
   color: var(--muted);
 }
 
+.event-summary__details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+  color: var(--muted);
+}
+
+.event-summary__details li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.event-summary__icon {
+  flex-shrink: 0;
+  width: 1.1em;
+  height: 1.1em;
+  margin-top: 0.15em;
+  color: var(--blue-bright);
+}
+
+.event-perks {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  max-width: 720px;
+  margin-top: 18px;
+}
+
+.sponsor-note,
+.beer-perk {
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.sponsor-note {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+  font-family: var(--font-display);
+}
+
+.sponsor-note__label {
+  color: var(--dim);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.sponsor-note__logo-link {
+  display: inline-flex;
+  width: 76%;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.92;
+  transition: opacity 0.15s ease;
+}
+
+.sponsor-note__logo-link:hover,
+.sponsor-note__logo-link:focus-visible {
+  opacity: 1;
+}
+
+.sponsor-note__logo {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.sponsor-note__cta {
+  color: var(--blue-bright);
+  font-size: 0.86rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.sponsor-note__cta:hover,
+.sponsor-note__cta:focus-visible {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+.sponsor-note a:focus-visible {
+  outline: 2px solid var(--blue-bright);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.beer-perk {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+}
+
+.beer-perk__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 2px;
+}
+
+.beer-perk__icon {
+  flex-shrink: 0;
+  width: 30px;
+  height: auto;
+  color: var(--coral-bright);
+}
+
+.beer-perk__headline {
+  color: var(--coral-bright);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.beer-perk__body {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.beer-perk__note {
+  color: var(--dim);
+  font-size: 0.78rem;
+}
+
+@media (max-width: 640px) {
+  .event-perks {
+    grid-template-columns: 1fr;
+  }
+}
+
+.agenda-section {
+  padding-top: clamp(18px, 3vw, 28px);
+  padding-bottom: clamp(18px, 3vw, 28px);
+}
+
+.agenda-section .eyebrow {
+  margin-bottom: 18px;
+}
+
+.agenda-timeline {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 20px;
+  max-width: 1180px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.agenda-timeline li {
+  position: relative;
+  padding: 18px 16px 0 0;
+  border-top: 2px solid var(--line);
+}
+
+.agenda-timeline li::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--coral);
+  box-shadow: 0 0 0 5px var(--ink);
+}
+
+.agenda-timeline__time {
+  display: block;
+  color: var(--blue-bright);
+  font-family: var(--font-display);
+  font-size: 0.86rem;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+}
+
+.agenda-timeline__label {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.35;
+}
+
+@media (max-width: 900px) {
+  .agenda-timeline {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 18px;
+  }
+}
+
+@media (max-width: 640px) {
+  .agenda-timeline {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .agenda-timeline li {
+    border-top: 0;
+    border-left: 2px solid var(--line);
+    padding: 0 0 0 18px;
+  }
+
+  .agenda-timeline li::before {
+    top: 2px;
+    left: -6px;
+  }
+}
+
+.event-summary__details a {
+  color: var(--blue-bright);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.event-summary__details a:hover {
+  color: var(--text);
+}
+
 .register-section {
   padding-top: clamp(24px, 3vw, 40px);
 }
@@ -1728,6 +1957,24 @@ details p {
 .register-form .button {
   width: 100%;
   margin-top: 8px;
+}
+
+.register-form__privacy-note {
+  margin-top: 10px;
+  color: var(--dim);
+  font-size: 0.82rem;
+  text-align: center;
+}
+
+.register-form__privacy-note a {
+  color: var(--blue-bright);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.register-form__privacy-note a:hover,
+.register-form__privacy-note a:focus-visible {
+  color: var(--text);
 }
 
 .register-form .button:disabled {
