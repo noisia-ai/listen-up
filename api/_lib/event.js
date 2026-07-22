@@ -35,6 +35,10 @@ export const EVENT = {
   topic: EVENT_TOPIC,
   city: EVENT_CITY,
   dateLabel: formatDateLabel(EVENT_DATE),
-  startUTC: buildUtcDateTime(EVENT_DATE, 16),
-  endUTC: buildUtcDateTime(EVENT_DATE, 21),
+  timeLabel: "6:00 p.m. a 10:00 p.m.",
+  venue: "Pata Negra Cuauhtémoc",
+  address: "Río Niagara 43, Cuauhtémoc, CDMX",
+  // 6pm–10pm CDMX (UTC-6) → 00:00–04:00 UTC del día siguiente
+  startUTC: "20260814T000000Z",
+  endUTC: "20260814T040000Z",
 };

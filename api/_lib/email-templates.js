@@ -30,12 +30,20 @@ export function attendeeEmailHtml(data) {
               <td style="padding: 6px 0;">${escapeHtml(EVENT.dateLabel)}</td>
             </tr>
             <tr>
+              <td style="padding: 6px 0; font-weight: 700;">Hora</td>
+              <td style="padding: 6px 0;">${escapeHtml(EVENT.timeLabel)}</td>
+            </tr>
+            <tr>
               <td style="padding: 6px 0; font-weight: 700;">Lugar</td>
-              <td style="padding: 6px 0;">${escapeHtml(EVENT.city)}</td>
+              <td style="padding: 6px 0;">${escapeHtml(EVENT.venue)}</td>
+            </tr>
+            <tr>
+              <td style="padding: 6px 0; font-weight: 700;">Direccion</td>
+              <td style="padding: 6px 0;">${escapeHtml(EVENT.address)}</td>
             </tr>
           </table>
           <p style="margin: 0 0 24px; font-size: 14px; line-height: 1.6; color: #44445a;">
-            Adjuntamos un archivo <strong>.ics</strong> para que agregues el evento a tu calendario (Save the Date).
+            Adjuntamos un archivo <strong>.ics</strong> para agregar el evento a tu calendario.
           </p>
           <table role="presentation" style="margin: 0 0 24px;">
             <tr>
@@ -46,9 +54,23 @@ export function attendeeEmailHtml(data) {
               </td>
             </tr>
           </table>
-          <p style="margin: 0; font-size: 13px; line-height: 1.6; color: #e85d70; font-weight: 700;">
+          <p style="margin: 0 0 24px; font-size: 13px; line-height: 1.6; color: #e85d70; font-weight: 700;">
             Cupo limitado: tu confirmacion final queda sujeta a disponibilidad.
           </p>
+          <p style="margin: 0 0 12px; font-size: 14px; line-height: 1.6; color: #44445a;">Conectate con la comunidad:</p>
+          <table role="presentation" style="margin: 0;">
+            <tr>
+              <td style="padding-right: 8px;">
+                <a href="https://chat.whatsapp.com/Krm8UmYEYc36997hAJygyh?mode=gi_t" style="display: inline-block; padding: 10px 20px; border-radius: 999px; border: 1px solid #e5e3da; font-size: 13px; font-weight: 700; color: #1a1a2e; text-decoration: none;">WhatsApp</a>
+              </td>
+              <td style="padding-right: 8px;">
+                <a href="https://www.instagram.com/listenupmeetup/" style="display: inline-block; padding: 10px 20px; border-radius: 999px; border: 1px solid #e5e3da; font-size: 13px; font-weight: 700; color: #1a1a2e; text-decoration: none;">Instagram</a>
+              </td>
+              <td>
+                <a href="https://www.linkedin.com/company/listenup-socialintelligence-meetup/" style="display: inline-block; padding: 10px 20px; border-radius: 999px; border: 1px solid #e5e3da; font-size: 13px; font-weight: 700; color: #1a1a2e; text-decoration: none;">LinkedIn</a>
+              </td>
+            </tr>
+          </table>
         </div>
         <div style="padding: 16px 32px; background: #f5f3ec; font-size: 12px; color: #82829b;">
           ListenUp! · La comunidad de Social Intelligence mas grande de LATAM.
