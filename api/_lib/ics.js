@@ -28,7 +28,7 @@ export function buildEventIcs() {
     `DTEND:${EVENT.endUTC}`,
     `SUMMARY:${escapeIcsText(EVENT.name)}`,
     `DESCRIPTION:${escapeIcsText(EVENT.topic)}`,
-    `LOCATION:${escapeIcsText(EVENT.city)}`,
+    `LOCATION:${escapeIcsText(`${EVENT.venue}, ${EVENT.address}`)}`,
     "STATUS:CONFIRMED",
     "END:VEVENT",
     "END:VCALENDAR",

@@ -42,14 +42,16 @@ export function attendeeEmailHtml(data) {
               <td style="padding: 6px 0;">${escapeHtml(EVENT.address)}</td>
             </tr>
           </table>
-          <p style="margin: 0 0 24px; font-size: 14px; line-height: 1.6; color: #44445a;">
-            Adjuntamos un archivo <strong>.ics</strong> para agregar el evento a tu calendario.
-          </p>
           <table role="presentation" style="margin: 0 0 24px;">
             <tr>
-              <td style="border-radius: 999px; background: #ee5a6f;">
-                <a href="${EVENT_PAGE_URL}" style="display: inline-block; padding: 14px 28px; color: #ffffff; font-size: 14px; font-weight: 700; text-decoration: none; border-radius: 999px;">
-                  Ver detalles del evento
+              <td style="padding-right: 8px;">
+                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=ListenUp!+5.0&dates=20260814T000000Z%2F20260814T040000Z&details=Del+insight+a+la+acci%C3%B3n%3A+C%C3%B3mo+la+IA+est%C3%A1+redefiniendo+el+Social+Listening&location=Pata+Negra+Cuauht%C3%A9moc%2C+R%C3%ADo+Niagara+43%2C+Cuauht%C3%A9moc%2C+CDMX" style="display: inline-block; padding: 14px 28px; border-radius: 999px; background: #ee5a6f; color: #ffffff; font-size: 14px; font-weight: 700; text-decoration: none;">
+                  Agregar a Google Calendar
+                </a>
+              </td>
+              <td>
+                <a href="${EVENT_PAGE_URL}" style="display: inline-block; padding: 14px 28px; border-radius: 999px; border: 1px solid #e5e3da; color: #44445a; font-size: 14px; font-weight: 700; text-decoration: none;">
+                  Ver detalles
                 </a>
               </td>
             </tr>
