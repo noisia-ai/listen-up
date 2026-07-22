@@ -1122,9 +1122,9 @@ summary:focus-visible {
 
 .team-member img {
   width: 100%;
-  aspect-ratio: 5 / 4;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
-  object-position: center 22%;
+  object-position: center;
   border-bottom: 1px solid var(--line);
   filter: saturate(0.92) contrast(1.02);
 }
@@ -1133,7 +1133,7 @@ summary:focus-visible {
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding: 22px;
+  padding: 16px 18px 18px;
 }
 
 .team-member__role {
@@ -1146,40 +1146,48 @@ summary:focus-visible {
 }
 
 .team-member h3 {
-  margin-top: 10px;
-  min-height: 3.2em;
-  font-size: 1.24rem;
+  margin-top: 6px;
+  font-size: 1.15rem;
 }
 
 .team-member__meta {
-  margin-top: 10px;
-  min-height: 2.9em;
+  margin-top: 4px;
   color: #eeeeff;
   font-family: var(--font-display);
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 800;
-  line-height: 1.45;
-}
-
-.team-member__bio {
-  margin-top: 14px;
-  color: var(--muted);
-  font-size: 0.92rem;
-  line-height: 1.55;
+  line-height: 1.4;
 }
 
 .team-member__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   width: fit-content;
   margin-top: auto;
-  padding-top: 18px;
+  padding-top: 14px;
   color: var(--blue-bright);
   font-family: var(--font-display);
   font-size: 0.88rem;
   font-weight: 900;
+  text-decoration: none;
 }
 
-.team-member__link::after {
-  content: " ->";
+.team-member__link:hover,
+.team-member__link:focus-visible {
+  color: var(--text);
+}
+
+.team-member__link:focus-visible {
+  outline: 2px solid var(--blue-bright);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.team-member__icon {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
 }
 
 .faq-layout {
