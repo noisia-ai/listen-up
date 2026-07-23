@@ -55,36 +55,6 @@
         flex-wrap: wrap;
         margin-top: 32px;
       }
-      .thankyou__social {
-        margin-top: 40px;
-        padding-top: 32px;
-        border-top: 1px solid var(--line, rgba(255,255,255,0.1));
-      }
-      .thankyou__social p {
-        font-size: 0.875rem;
-        margin-bottom: 16px;
-      }
-      .thankyou__social-links {
-        display: flex;
-        gap: 12px;
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-      .thankyou__social-links a {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 8px 16px;
-        border: 1px solid var(--line, rgba(255,255,255,0.15));
-        border-radius: 999px;
-        font-size: 0.875rem;
-        color: inherit;
-        text-decoration: none;
-        transition: border-color 0.15s;
-      }
-      .thankyou__social-links a:hover {
-        border-color: var(--coral, #f06);
-      }
       #icsLink { display: none; }
       .thankyou__event-meta {
         display: flex;
@@ -114,23 +84,71 @@
       }
       .thankyou__social-links {
         display: flex;
-        gap: 12px;
+        gap: 14px;
         justify-content: center;
         flex-wrap: wrap;
       }
-      .thankyou__social-links a {
+      .social-btn {
         display: inline-flex;
         align-items: center;
-        padding: 8px 18px;
-        border: 1px solid var(--line);
+        justify-content: center;
+        gap: 10px;
+        height: 48px;
+        padding: 0 22px;
+        border: none;
         border-radius: 999px;
-        font-size: 0.875rem;
-        color: inherit;
+        font-family: var(--font-display, inherit);
+        font-size: 0.9rem;
+        font-weight: 800;
+        color: #fff;
         text-decoration: none;
-        transition: border-color 0.15s;
+        transition: transform 220ms ease, box-shadow 220ms ease, background 220ms ease, background-position 220ms ease;
       }
-      .thankyou__social-links a:hover {
-        border-color: var(--coral);
+      .social-btn__icon {
+        width: 22px;
+        height: 22px;
+        flex-shrink: 0;
+      }
+      .social-btn:hover {
+        transform: translateY(-2px);
+      }
+      .social-btn:active {
+        transform: translateY(0) scale(0.98);
+      }
+      .social-btn:focus-visible {
+        outline: 2px solid #fff;
+        outline-offset: 3px;
+      }
+      .social-btn--whatsapp {
+        background: #25d366;
+      }
+      .social-btn--whatsapp:hover {
+        background: #1ebc59;
+        box-shadow: 0 10px 24px rgba(37, 211, 102, 0.35);
+      }
+      .social-btn--instagram {
+        background: linear-gradient(135deg, #833ab4, #e1306c, #f77737);
+        background-size: 160% 160%;
+        background-position: 0% 50%;
+      }
+      .social-btn--instagram:hover {
+        background-position: 100% 50%;
+        box-shadow: 0 10px 24px rgba(225, 48, 108, 0.35);
+      }
+      .social-btn--linkedin {
+        background: #0a66c2;
+      }
+      .social-btn--linkedin:hover {
+        background: #084d92;
+        box-shadow: 0 10px 24px rgba(10, 102, 194, 0.35);
+      }
+      @media (max-width: 640px) {
+        .thankyou__social-links {
+          flex-direction: column;
+        }
+        .social-btn {
+          width: 100%;
+        }
       }
     </style>
   </head>
@@ -184,9 +202,24 @@
           <div class="thankyou__social">
             <p>Siguenos y mantente al tanto de los proximos eventos</p>
             <div class="thankyou__social-links">
-              <a href="https://chat.whatsapp.com/Krm8UmYEYc36997hAJygyh?mode=gi_t" target="_blank" rel="noopener">WhatsApp</a>
-              <a href="https://www.instagram.com/listenupmeetup/" target="_blank" rel="noopener">Instagram</a>
-              <a href="https://www.linkedin.com/company/listenup-socialintelligence-meetup/" target="_blank" rel="noopener">LinkedIn</a>
+              <a class="social-btn social-btn--whatsapp" href="https://chat.whatsapp.com/Krm8UmYEYc36997hAJygyh?mode=gi_t" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp de ListenUp!">
+                <svg class="social-btn__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12.04 2c-5.46 0-9.9 4.44-9.9 9.9 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.44 9.9-9.9 0-2.64-1.03-5.12-2.9-6.98A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.19 0 4.25.85 5.79 2.4a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.24-8.23Zm-4.5 4.13c-.16 0-.42.06-.64.31-.22.25-.85.83-.85 2.02 0 1.19.87 2.34.99 2.5.12.17 1.71 2.7 4.24 3.68 2.1.82 2.52.66 2.98.62.46-.04 1.48-.6 1.68-1.19.21-.58.21-1.08.15-1.19-.06-.1-.22-.16-.46-.28-.24-.12-1.48-.73-1.71-.81-.23-.08-.4-.12-.56.12-.17.25-.64.81-.79.98-.14.16-.29.18-.53.06-.24-.12-1.03-.38-1.96-1.21-.72-.64-1.21-1.44-1.35-1.68-.14-.24-.02-.38.11-.5.11-.11.24-.29.36-.43.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.56-1.36-.78-1.86-.2-.48-.41-.42-.56-.43h-.48Z" />
+                </svg>
+                <span>WhatsApp</span>
+              </a>
+              <a class="social-btn social-btn--instagram" href="https://www.instagram.com/listenupmeetup/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de ListenUp!">
+                <svg class="social-btn__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.98.24 2.6.5.65.27 1.14.6 1.63 1.1.5.5.83.98 1.1 1.63.26.62.45 1.43.5 2.6.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.24 1.98-.5 2.6a4.4 4.4 0 0 1-1.1 1.63 4.4 4.4 0 0 1-1.63 1.1c-.62.26-1.43.45-2.6.5-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.98-.24-2.6-.5a4.4 4.4 0 0 1-1.63-1.1 4.4 4.4 0 0 1-1.1-1.63c-.26-.62-.45-1.43-.5-2.6C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.24-1.98.5-2.6.27-.65.6-1.14 1.1-1.63a4.4 4.4 0 0 1 1.63-1.1c.62-.26 1.43-.45 2.6-.5C8.42 2.21 8.8 2.2 12 2.2Zm0 1.8c-3.15 0-3.5.01-4.73.07-.96.04-1.48.2-1.82.34-.46.18-.78.39-1.13.73-.34.35-.55.67-.73 1.13-.14.34-.3.86-.34 1.82-.06 1.23-.07 1.58-.07 4.73s.01 3.5.07 4.73c.04.96.2 1.48.34 1.82.18.46.39.78.73 1.13.35.34.67.55 1.13.73.34.14.86.3 1.82.34 1.23.06 1.58.07 4.73.07s3.5-.01 4.73-.07c.96-.04 1.48-.2 1.82-.34.46-.18.78-.39 1.13-.73.34-.35.55-.67.73-1.13.14-.34.3-.86.34-1.82.06-1.23.07-1.58.07-4.73s-.01-3.5-.07-4.73c-.04-.96-.2-1.48-.34-1.82a3.03 3.03 0 0 0-.73-1.13 3.03 3.03 0 0 0-1.13-.73c-.34-.14-.86-.3-1.82-.34-1.23-.06-1.58-.07-4.73-.07Zm0 3.06a5.94 5.94 0 1 1 0 11.88 5.94 5.94 0 0 1 0-11.88Zm0 1.8a4.14 4.14 0 1 0 0 8.28 4.14 4.14 0 0 0 0-8.28Zm6.17-2.14a1.39 1.39 0 1 1 0 2.78 1.39 1.39 0 0 1 0-2.78Z" />
+                </svg>
+                <span>Instagram</span>
+              </a>
+              <a class="social-btn social-btn--linkedin" href="https://www.linkedin.com/company/listenup-socialintelligence-meetup/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de ListenUp!">
+                <svg class="social-btn__icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path d="M4.98 3.5a2 2 0 1 1 0 4 2 2 0 0 1 0-4ZM3 8.98h4v11H3v-11Zm6.5 0H13v1.7c.56-1.06 1.94-1.9 3.7-1.9 3.3 0 4.3 2.1 4.3 5.4v6.4h-4v-5.6c0-1.34 0-3.06-1.9-3.06-1.9 0-2.1 1.44-2.1 2.96v5.7h-4v-11Z" />
+                </svg>
+                <span>LinkedIn</span>
+              </a>
             </div>
           </div>
         </div>
@@ -230,9 +263,9 @@
           registro: {
             tag: "Registro recibido",
             eyebrow: "Gracias",
-            title: "Te esperamos el 13 de agosto.",
-            body: "Esta es la confirmacion de tu registro a ListenUp! 5.0. Agrega el evento a tu calendario para no perdertelo.",
-            note: "Cupo limitado: tu confirmacion final queda sujeta a disponibilidad.",
+            title: "¡Listo! Tu registro quedó confirmado",
+            body: "También enviamos la confirmación y el Save the Date a tu correo electrónico.",
+            note: "Cupo limitado",
             actions: [
               { label: "Agregar a Google Calendar", href: "https://calendar.google.com/calendar/render?action=TEMPLATE&text=ListenUp!+5.0&dates=20260814T000000Z%2F20260814T040000Z&details=Del+insight+a+la+acci%C3%B3n%3A+C%C3%B3mo+la+IA+est%C3%A1+redefiniendo+el+Social+Listening&location=Pata+Negra+Cuauht%C3%A9moc%2C+R%C3%ADo+Niagara+43%2C+Cuauht%C3%A9moc%2C+CDMX", target: "_blank", primary: false },
               { label: "Ver en Google Maps", href: "https://www.google.com/maps/search/?api=1&query=Pata+Negra+Cuauht%C3%A9moc%2C+R%C3%ADo+Niagara+43%2C+Cuauht%C3%A9moc%2C+CDMX", target: "_blank", primary: false },
