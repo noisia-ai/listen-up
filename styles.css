@@ -1097,14 +1097,18 @@ summary:focus-visible {
 }
 
 .team-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 16px;
-  align-items: stretch;
 }
 
 .team-member {
-  min-height: 100%;
+  flex: 0 0 calc((100% - 48px) / 4);
+  max-width: calc((100% - 48px) / 4);
+}
+
+.team-member {
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -1188,6 +1192,49 @@ summary:focus-visible {
   width: 18px;
   height: 18px;
   flex-shrink: 0;
+}
+
+@media (max-width: 1023px) {
+  .team-member {
+    flex-basis: calc((100% - 16px) / 2);
+    max-width: calc((100% - 16px) / 2);
+  }
+}
+
+@media (max-width: 640px) {
+  .team-grid {
+    gap: 12px;
+  }
+
+  .team-member {
+    flex-basis: calc((100% - 12px) / 2);
+    max-width: calc((100% - 12px) / 2);
+  }
+}
+
+@media (max-width: 340px) {
+  .team-member {
+    flex-basis: 100%;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-member__body {
+    padding: 12px 14px 14px;
+  }
+
+  .team-member h3 {
+    font-size: 1.02rem;
+  }
+
+  .team-member__role {
+    font-size: 0.7rem;
+  }
+
+  .team-member__meta {
+    font-size: 0.82rem;
+  }
 }
 
 .faq-layout {
@@ -2388,8 +2435,7 @@ details p {
     position: static;
   }
 
-  .past-grid,
-  .team-grid {
+  .past-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -2469,7 +2515,6 @@ details p {
   }
 
   .past-grid,
-  .team-grid,
   .benefit-grid,
   .blog-grid {
     grid-template-columns: 1fr;
