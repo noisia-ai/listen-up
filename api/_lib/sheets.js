@@ -44,9 +44,17 @@ export async function appendSignupRow(data) {
     return;
   }
   const { sheets, sheetId, sheetTab } = client;
-  await sheets.spreadsheets.values.append({
+
+  // Determine next empty row by counting values in column A (row 1 = header)
+  const colA = await sheets.spreadsheets.values.get({
     spreadsheetId: sheetId,
-    range: `${sheetTab}!A:I`,
+    range: `${sheetTab}!A:A`,
+  });
+  const nextRow = (colA.data.values || []).length + 1;
+
+  await sheets.spreadsheets.values.update({
+    spreadsheetId: sheetId,
+    range: `${sheetTab}!A${nextRow}`,
     valueInputOption: "USER_ENTERED",
     requestBody: { values: [ROW(data)] },
   });
